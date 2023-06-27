@@ -10,6 +10,14 @@ fun main(){
     println(dog.copy(age = 3).toString())
 
     val cat : Cat = BlueCat()
+    val result = when(cat){
+        is BlueCat -> {"blue"}
+        is RedCat -> {"red"}
+        is GreenCat -> {"green"}
+        else -> { "none"}
+    }
+
+    println(result)
 }
 
 class Human(val name : String, val age : Int )
@@ -25,3 +33,4 @@ data class Dog(
 abstract class Cat
 class BlueCat : Cat()
 class RedCat : Cat()
+class GreenCat : Cat()
