@@ -10,11 +10,11 @@ fun main(){
     println(dog.copy(age = 3).toString())
 
     val cat : Cat = BlueCat()
-    val result = when(cat){
+    val result = when(cat){   //sealed class를 쓰면 else가 필요없어짐
         is BlueCat -> {"blue"}
         is RedCat -> {"red"}
         is GreenCat -> {"green"}
-        else -> { "none"}
+        is WhiteCat -> {"white"}   //클래스를 빼먹으면 에러가 뜸
     }
 
     println(result)
@@ -30,7 +30,9 @@ data class Dog(
 )
 
 // sealed class
-abstract class Cat
+sealed class Cat
 class BlueCat : Cat()
 class RedCat : Cat()
 class GreenCat : Cat()
+
+class WhiteCat : Cat()
